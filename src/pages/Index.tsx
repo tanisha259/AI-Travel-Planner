@@ -33,6 +33,20 @@ const Index = () => {
     setIsLoading(true);
     try {
       toast.success("Generating your personalized itinerary...");
+      
+      // Send data to webhook
+      try {
+        await fetch('https://tanisha7890.app.n8n.cloud/webhook-test/dc9c24a8-a5a4-4a11-ad26-eb17c8b875bd', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(formData),
+        });
+      } catch (webhookError) {
+        console.error("Webhook error:", webhookError);
+      }
+      
       const generatedItinerary = await generateItinerary(formData);
       setItinerary(generatedItinerary);
       toast.success("Your travel plan is ready!");
