@@ -6,6 +6,8 @@ import { generateItinerary } from "@/utils/itineraryGenerator";
 import { toast } from "sonner";
 
 interface TravelFormData {
+  name: string;
+  email: string;
   destination: string;
   currentCity: string;
   startDate: string;

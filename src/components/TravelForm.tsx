@@ -8,6 +8,8 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { CalendarDays, MapPin, Plane, Users, DollarSign, Clock } from "lucide-react";
 
 interface TravelFormData {
+  name: string;
+  email: string;
   destination: string;
   currentCity: string;
   startDate: string;
@@ -34,6 +36,8 @@ const interestOptions = [
 
 export function TravelForm({ onSubmit, isLoading }: TravelFormProps) {
   const [formData, setFormData] = useState<TravelFormData>({
+    name: "",
+    email: "",
     destination: "",
     currentCity: "",
     startDate: "",
@@ -67,6 +71,38 @@ export function TravelForm({ onSubmit, isLoading }: TravelFormProps) {
       <CardContent>
         <form onSubmit={handleSubmit} className="space-y-6">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {/* Name */}
+            <div className="space-y-2">
+              <Label htmlFor="name" className="flex items-center gap-2">
+                <Users className="w-4 h-4 text-primary" />
+                Full Name
+              </Label>
+              <Input
+                id="name"
+                placeholder="Enter your full name"
+                value={formData.name}
+                onChange={(e) => setFormData(prev => ({ ...prev, name: e.target.value }))}
+                required
+                className="bg-background border-border focus:ring-primary"
+              />
+            </div>
+
+            {/* Email */}
+            <div className="space-y-2">
+              <Label htmlFor="email" className="flex items-center gap-2">
+                <MapPin className="w-4 h-4 text-secondary" />
+                Email Address
+              </Label>
+              <Input
+                id="email"
+                type="email"
+                placeholder="Enter your email address"
+                value={formData.email}
+                onChange={(e) => setFormData(prev => ({ ...prev, email: e.target.value }))}
+                required
+                className="bg-background border-border focus:ring-primary"
+              />
+            </div>
             {/* Destination */}
             <div className="space-y-2">
               <Label htmlFor="destination" className="flex items-center gap-2">

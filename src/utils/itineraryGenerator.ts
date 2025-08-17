@@ -2,6 +2,8 @@
 // In a real app, this would call an AI service like OpenAI or Claude
 
 interface TravelFormData {
+  name: string;
+  email: string;
   destination: string;
   currentCity: string;
   startDate: string;
