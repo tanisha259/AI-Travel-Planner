@@ -93,7 +93,7 @@ const Index = () => {
       {/* ElevenLabs Conversational AI Widget */}
       <div className="fixed bottom-4 right-4 z-50" 
            dangerouslySetInnerHTML={{
-             __html: '<elevenlabs-convai agent-id="agent_8001k2vdrssnec1bvqp1abcy1yxc"></elevenlabs-convai>'
+             __html: '<elevenlabs-convai agent-id="agent_1401k2vs0xtdewk9xqxwc00ychq1"></elevenlabs-convai>'
            }} 
       />
     </div>
